@@ -2,7 +2,7 @@ orbs:
   win: circleci/windows@1.0.0
 
 jobs:
-  build-windows:
+  docker:
     executor: win/vs2019
     steps:
       - checkout
