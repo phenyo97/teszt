@@ -4,10 +4,8 @@ orbs:
 jobs:
   build:
     executor: machine
-    working_directory: ~/teszt/Test
     steps:
-      - checkout:
-          path: ~/teszt
+      - checkout
       - run: 'g++ -std=c++11 *.cpp *.h'
       persist_to_workspace:
       paths: a.out
