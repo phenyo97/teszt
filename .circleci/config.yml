@@ -2,8 +2,8 @@ orbs:
   win: circleci/windows@1.0.0
 
 jobs:
-  build-windows:
-    executor: docker
+  build:
+    executor: machine
     steps:
       - checkout
       - run: Write-Host 'Hello, Windows'
