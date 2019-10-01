@@ -1,22 +1,9 @@
-version: 2
+orbs:
+  win: circleci/windows@1.0.0
+
 jobs:
-	build:
-		machine:
-			image: ubuntu-1604:201903-01
-		steps:
-			- checkout
-			- run g++ *.cpp
-	print:
-		machine:
-			image: ubuntu-1604:201903-01
-		steps:
-			- checkout
-			- run cat main.cpp
-workflows:
-	version: 2
-	build_and_print:
-		jobs:
-			- build
-			- print:
-				requires:
-					- build
+  build-windows:
+    executor: win/vs2019
+    steps:
+      - checkout
+      - run: Write-Host 'Hello, Windows'
