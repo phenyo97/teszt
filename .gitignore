@@ -1,0 +1,8 @@
+#files to be ignored
+
+*.pro*
+*.out*
+*.gch*
+*.vcxproj.*
+*.json*
+*.txt
