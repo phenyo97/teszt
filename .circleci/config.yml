@@ -7,3 +7,8 @@ jobs:
     steps:
       - checkout
       - run: 'g++ -std=c++11 *.cpp *.h'
+workflows:
+  version: 2
+  workflow:
+    jobs:
+    - build
