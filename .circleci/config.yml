@@ -7,6 +7,16 @@ jobs:
     steps:
       - checkout
       - run: 'g++ -std=c++11 *.cpp *.h'
+                name: Save test results
+          command: |
+            mkdir -p ~/cucu
+            bundle exec cucu --format junit --out ~/cucu/junit.xml
+          when: always
+      - store_test_results:
+          path: ~/cucu
+      - store_artifacts:
+          path: ~/cucu
+
 workflows:
   version: 2
   workflow:
