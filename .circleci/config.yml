@@ -6,4 +6,4 @@ jobs:
     executor: machine
     steps:
       - checkout
-      - run: Write-Host 'Hello, Windows'
+      - run: 'g++ main.cpp'
