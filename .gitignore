@@ -5,4 +5,5 @@
 *.gch*
 *.vcxproj.*
 *.json*
+*.txt
 *.user
