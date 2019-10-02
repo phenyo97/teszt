@@ -4,13 +4,13 @@ orbs:
 version: 2.1
 jobs:
   build:
-    executor: machine
+    executor: docker
     working_directory: ~/teszt/Test
     steps:
       - checkout
       - run: 'g++ -std=c++11 *.cpp *.h'
   test:
-      executor: machine
+      executor: docker
       steps:
       - run: './a.out < Test/test.txt > Test/out.txt'
       - run: 'diff Test/out.txt Test/testresult.txt'
