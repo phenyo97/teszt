@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    machine:
+    executor: machine
     working_directory: ~/teszt/Test
     steps:
       - checkout:
@@ -10,7 +10,7 @@ jobs:
     persist_to_workspace:
       paths: a.out
   test:
-    machine:
+    executor: machine
     steps:
       - run: './a.out < Test/test.txt > Test/out.txt'
       - run: 'diff Test/out.txt Test/testresult.txt'
