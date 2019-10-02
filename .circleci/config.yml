@@ -11,8 +11,12 @@ jobs:
   test:
       executor: machine
       steps:
-      - run: '< Test/test.txt > Test/out.txt'
+      - run: './a.out < Test/test.txt > Test/out.txt'
       - run: 'diff Test/out.txt Test/testresult.txt'
+      
+      - store_artifacts:
+          path: a.out
+          destination: Binary file
 
 workflows:
   version: 2
