@@ -1,7 +1,7 @@
 orbs:
   win: circleci/windows@1.0.0
 
-version: 2
+version: 2.1
 jobs:
   build:
     executor: machine
@@ -22,7 +22,7 @@ jobs:
           destination: Binary file
 
 workflows:
-  version: 2
+  version: 2.1
   build_and_test:
     jobs:
       - build
