@@ -12,7 +12,6 @@ jobs:
   test:
       executor: machine
       steps:
-      - run: echo "teszteset" > test.txt
       - run: './a.out < Test/test.txt > Test/out.txt'
       - run: 'diff Test/out.txt Test/testresult.txt'
       
