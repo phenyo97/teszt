@@ -2,7 +2,6 @@ version: 2
 jobs:
   build:
     machine:
-      image: ubuntu-1604:201903-01
     working_directory: ~/teszt/Test
     steps:
       - checkout:
@@ -12,7 +11,6 @@ jobs:
       paths: a.out
   test:
     machine:
-      image: ubuntu-1604:201903-01
     steps:
       - run: './a.out < Test/test.txt > Test/out.txt'
       - run: 'diff Test/out.txt Test/testresult.txt'
