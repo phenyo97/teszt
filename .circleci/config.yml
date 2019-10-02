@@ -9,7 +9,6 @@ jobs:
     steps:
       - checkout
       - run: 'g++ -std=c++11 *.cpp *.h'
-      - run: test.txt < echo "teszteset" >
   test:
       executor: machine
       steps:
