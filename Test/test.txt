@@ -1,10 +1,2 @@
 mkdir fa
-cd fa
-touch lomb
-touch agak
-ls
-cd
-ls
-treelist
-rm fa
 ls
