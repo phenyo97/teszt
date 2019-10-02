@@ -6,7 +6,8 @@ jobs:
     executor: machine
     working_directory: ~/teszt/Test
     steps:
-      - checkout
+      - checkout:
+          path: ~/teszt
       - run: 'g++ -std=c++11 *.cpp *.h'
   test:
       executor: machine
