@@ -4,12 +4,21 @@ orbs:
 jobs:
   build:
     executor: machine
+    working_directory: ~/teszt/Test
     steps:
       - checkout
       - run: 'g++ -std=c++11 *.cpp *.h'
+    test:
+      executor: machine
+      steps:
+      - run: './a.out < Tests/test.txt > Tests/out.txt'
+      - run: 'diff Tests/out.txt Tests/testresult.txt'
 
 workflows:
   version: 2
-  workflow:
+  build_and_test:
     jobs:
-    - build
+      - build
+      - test:
+          requires:
+            - build
