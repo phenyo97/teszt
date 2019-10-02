@@ -5,12 +5,9 @@ version: 2.1
 jobs:
   build:
     machine
-    working_directory: ~/teszt/Test
     steps:
       - checkout
       - run: 'g++ -std=c++11 *.cpp *.h'
-    persist_to_workspace:
-      paths: a.out
   test:
       machine
       steps:
