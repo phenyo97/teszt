@@ -8,7 +8,7 @@ jobs:
     steps:
       - checkout
       - run: 'g++ -std=c++11 *.cpp *.h'
-    test:
+  test:
       executor: machine
       steps:
       - run: './a.out < Tests/test.txt > Tests/out.txt'
