@@ -1,16 +1,18 @@
 orbs:
   win: circleci/windows@1.0.0
 
-version: 2.1
+version: 2
 jobs:
   build:
-    executor: docker
+    executor: machine
     working_directory: ~/teszt/Test
     steps:
       - checkout
       - run: 'g++ -std=c++11 *.cpp *.h'
+    persist_to_workspace:
+      paths: a.out
   test:
-      executor: docker
+      executor: machine
       steps:
       - run: './a.out < Test/test.txt > Test/out.txt'
       - run: 'diff Test/out.txt Test/testresult.txt'
@@ -20,7 +22,7 @@ jobs:
           destination: Binary file
 
 workflows:
-  version: 2.1
+  version: 2
   build_and_test:
     jobs:
       - build
