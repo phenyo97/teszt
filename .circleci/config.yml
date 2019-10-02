@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout:
           path: ~/teszt
-      - run: 'g++ *.cpp -std=c++11'
+      - run: 'g++ *.h *.cpp -std=c++11'
     persist_to_workspace:
       paths: a.out
   test:
