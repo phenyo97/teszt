@@ -1,1 +1,3 @@
-User-mbp:/ User$ User-mbp:/ User$ fa
+User@User:~/
+User@User:~/
+fa/
