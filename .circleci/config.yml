@@ -1,23 +1,26 @@
+orbs:
+  win: circleci/windows@1.0.0
+
 version: 2
 jobs:
   build:
     executor: machine
     working_directory: ~/teszt/Test
     steps:
-      - checkout:
-          path: ~/teszt
+      - checkout
       - run: 'g++ -std=c++11 *.cpp *.h'
     persist_to_workspace:
       paths: a.out
   test:
-    executor: machine
-    steps:
+      executor: machine
+      steps:
       - run: './a.out < Test/test.txt > Test/out.txt'
       - run: 'diff Test/out.txt Test/testresult.txt'
-
+      
       - store_artifacts:
           path: a.out
           destination: Binary file
+
 workflows:
   version: 2
   build_and_test:
