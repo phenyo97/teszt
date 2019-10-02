@@ -1,6 +1,7 @@
 orbs:
   win: circleci/windows@1.0.0
 
+version: 2
 jobs:
   build:
     executor: machine
