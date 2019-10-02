@@ -11,7 +11,7 @@ jobs:
   test:
       executor: machine
       steps:
-      - run: './a.out < Test/test.txt > Test/out.txt'
+      - run: '< Test/test.txt > Test/out.txt'
       - run: 'diff Test/out.txt Test/testresult.txt'
 
 workflows:
