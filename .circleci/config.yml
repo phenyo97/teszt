@@ -14,6 +14,7 @@ jobs:
       image: ubuntu-1604:201903-01
     steps:
       - run: './a.out < Test/test.txt > Test/out.txt'
+      - run: ls -la
       - run: 'diff Test/out.txt Test/tresult.txt'
       
       - store_artifacts:
