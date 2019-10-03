@@ -1,10 +1,8 @@
-orbs:
-  win: circleci/windows@1.0.0
-
 version: 2
 jobs:
   build:
-    executor: machine
+    machine:
+      image: ubuntu-1604:201903-01
     working_directory: ~/teszt/Test
     steps:
       - checkout
@@ -12,9 +10,11 @@ jobs:
     persist_to_workspace:
       paths: a.out
   test:
-      executor: machine
-      steps:
-      - run: './a.out < Test/test.txt > Test/out.txt'
+    machine:
+      image: ubuntu-1604:201903-01
+    steps:
+      - run: './a.out < Test/test.txt >'
+      - run: '< Test/test.txt > Test/out.txt'
       - run: 'diff Test/out.txt Test/tresult.txt'
       
       - store_artifacts:
