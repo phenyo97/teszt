@@ -28,6 +28,7 @@
         - run: g++ -std=c++11 *.cpp *.h
         - run: ls -la
         - run: ./a.out < input > output
+        - run: cat output
         - run: diff output outputTest
         - run: pwd
   workflows:
