@@ -1,31 +1,49 @@
-version: 2
-jobs:
-  build:
-    machine:
-      image: ubuntu-1604:201903-01
-    working_directory: ~/teszt/Test
-    steps:
-      - checkout
-      - run: 'g++ -std=c++11 *.cpp *.h'
-    persist_to_workspace:
-      paths: a.out
-  test:
-    machine:
-      image: ubuntu-1604:201903-01
-    steps:
-      - run: ls -la
-      - run: './a.out < Test/test.txt > Test/out.txt'
-      - run: 'diff Test/out.txt Test/tresult.txt'
-      
-      - store_artifacts:
-          path: a.out
-          destination: Binary file
-
-workflows:
-  version: 2
-  build_and_test:
-    jobs:
-      - build
-      - test:
-          requires:
-            - build
+  version: 2.1
+  jobs:
+    build:
+      machine: 
+        image: ubuntu-1604:201903-01 # the primary container, where your job's commands are run
+      steps:
+        - checkout # check out the code in the project directory
+        - run: g++ -std=c++11 *.cpp *.h #build the project
+    print:
+      machine:
+        image:  ubuntu-1604:201903-01  
+      steps:
+        - checkout
+        - run: cat main.cpp
+    output:
+      machine:
+        image: ubuntu-1604:201903-01
+      steps:
+        - checkout
+        - run: g++ -std=c++11 *.cpp *.h
+        - run: echo "5" > input
+        - run: ls -la
+        - run: ./a.out < input
+    difference:
+      machine:
+         image: ubuntu-1604:201903-01
+      steps:
+        - checkout
+        - run: g++ -std=c++11 *.cpp *.h
+        - run: echo "5" > input
+        - run: echo "25" > outputTest
+        - run: ls -la
+        - run: ./a.out < input > output
+        - run: diff output outputTest
+        - run: pwd
+  workflows:
+    version: 2.1
+    build_print_diff:
+      jobs:
+        - build
+        - print:
+           requires:
+             - build
+        - output:
+           requires:
+             - build
+        - difference:
+           requires:
+             - build
