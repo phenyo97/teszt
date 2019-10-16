@@ -5,8 +5,7 @@
         image: ubuntu-1604:201903-01 # the primary container, where your job's commands are run
       steps:
         - checkout # check out the code in the project directory
-        - run: 
-          command: 'make clean' #build the project
+        - run: g++ -std=c++11 *.cpp *.h #build the project
     print:
       machine:
         image:  ubuntu-1604:201903-01  
@@ -18,8 +17,7 @@
         image: ubuntu-1604:201903-01
       steps:
         - checkout
-        - run: 
-          command: 'make clean'
+        - run: g++ -std=c++11 *.cpp *.h
         - run: ls -la
         - run: ./a.out < input
     difference:
@@ -27,8 +25,7 @@
          image: ubuntu-1604:201903-01
       steps:
         - checkout
-        - run: 
-          command: 'make clean'
+        - run: g++ -std=c++11 *.cpp *.h
         - run: ls -la
         - run: ./a.out < input > output
         - run: cat output
