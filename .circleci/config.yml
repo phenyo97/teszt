@@ -16,7 +16,7 @@
          image: ubuntu-1604:201903-01
       steps:
          - attach_workspace:
-            at: ~/
+            at: ~/teszt
          - run: ./terminal < input
     difference:
       machine:
