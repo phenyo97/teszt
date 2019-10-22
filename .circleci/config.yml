@@ -8,7 +8,7 @@
         - checkout # check out the code in the project directory
         - run: make -f makefile #build the project
         - persist_to_workspace:
-            root: ~/teszt
+            root: ~/
             paths:
               - terminal
     output:
