@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build:
     machine: 
-      image: ubuntu-1604:201903-01 
+      - image: ubuntu-1604:201903-01 
     steps:
       - checkout
       - run: 
@@ -16,7 +16,7 @@ jobs:
             
   output:
     machine: 
-      image: ubuntu-1604:201903-01
+      - image: ubuntu-1604:201903-01
     steps:
       - attach_workspace:
           at: ~/test          
@@ -26,7 +26,7 @@ jobs:
           
   diff:  
     machine: 
-      image: ubuntu-1604:201903-01
+      - image: ubuntu-1604:201903-01
     steps:
       - attach_workspace:
           at: ~/test        
@@ -34,15 +34,15 @@ jobs:
           name: Diff
           command: ./terminal < input > output && diff output outputTest
           
-  workflows:
-    version: 2
-    
-    build_and_test:
-      jobs:
-        - build
-        - output:
-            requires:
-              - build
-        - diff:
-            requires:
-              - build      
+workflows:
+  version: 2
+  
+  build_and_test:
+    jobs:
+      - build
+      - output:
+          requires:
+            - build
+      - diff:
+          requires:
+            - build
