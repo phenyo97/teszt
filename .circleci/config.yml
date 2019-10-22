@@ -7,7 +7,7 @@
       steps:
         - checkout # check out the code in the project directory
         - run: make -f makefile #build the project
-       -  run: pwd
+        -  run: pwd
         - persist_to_workspace:
             root: ~/
             paths:
