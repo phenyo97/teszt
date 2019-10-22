@@ -18,7 +18,7 @@
       steps:
          - attach_workspace:
             at: ~/
-         - run: ls -la
+         - run: echo  "teszteset" > input
          - run: ./terminal < input
     difference:
       machine:
@@ -26,7 +26,7 @@
       steps:
         - attach_workspace:
             at: ~/teszt
-        - run: ls -la
+        - run: echo  "teszteset" > input
         - run: ./terminal < input > output
         - run: diff output outputTest
   workflows:
