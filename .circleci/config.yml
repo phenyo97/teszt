@@ -9,7 +9,7 @@
         - run: make -f makefile #build the project
         -  run: pwd
         - persist_to_workspace:
-            root: ~/home/circleci/teszt
+            root: ~/teszt
             paths:
               - terminal
     output:
@@ -24,7 +24,7 @@
          image: ubuntu-1604:201903-01
       steps:
         - attach_workspace:
-            at: ~/home/circleci/teszt
+            at: ~/teszt
         - run: ./terminal < input > output
         - run: diff output outputTest
   workflows:
