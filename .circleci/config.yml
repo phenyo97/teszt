@@ -3,6 +3,7 @@
     build:
       machine: 
         image: ubuntu-1604:201903-01 # the primary container, where your job's commands are run
+      working_directory: ~/teszt
       steps:
         - checkout # check out the code in the project directory
         - run: make -f makefile #build the project
