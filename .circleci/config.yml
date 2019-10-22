@@ -7,18 +7,18 @@ jobs:
       - checkout
       - run: 
           name: "Build"
-          command: make -f makefile && ls -la && pwd
+          command: make -f makefile
       - persist_to_workspace:
-          root: ~/
+          root: ~/project
           paths:
-            - ter*
+            - terminal
             
   output:
     machine: 
       image: ubuntu-1604:201903-01
     steps:
       - attach_workspace:
-          at: ~/         
+          at: ~/project      
       - run:
           name: Output
           command: ./terminal < input
@@ -28,7 +28,7 @@ jobs:
       image: ubuntu-1604:201903-01
     steps:
       - attach_workspace:
-          at: ~/        
+          at: ~/project        
       - run:
           name: Diff
           command: ./terminal < input > output && diff output outputTest
