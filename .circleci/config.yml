@@ -6,9 +6,15 @@
       steps:
         - checkout # check out the code in the project directory
         - run: make -f makefile #build the project
+      persist_to_workspace:
+      root: ~/project
+      paths:
+        - terminal
     output:
       machine:
         image: ubuntu-1604:201903-01
+      attach_to_workspace:
+      at: ~/project
       steps:
         - checkout
         - run: make -f makefile
@@ -16,6 +22,8 @@
     difference:
       machine:
          image: ubuntu-1604:201903-01
+      attach_to_workspace:
+      at: ~/project
       steps:
         - checkout
         - run: make -f makefile
