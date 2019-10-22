@@ -7,6 +7,7 @@
       steps:
         - checkout # check out the code in the project directory
         - run: make -f makefile #build the project
+       -  run: pwd
         - persist_to_workspace:
             root: ~/
             paths:
@@ -25,7 +26,6 @@
         - attach_workspace:
             at: ~/
         - run: ./terminal < input > output
-        - run: cat output
         - run: diff output outputTest
   workflows:
     version: 2.1
