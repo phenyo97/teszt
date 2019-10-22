@@ -13,13 +13,13 @@
               - terminal
     output:
       machine:
-        image: ubuntu-1604:201903-01
+         image: ubuntu-1604:201903-01
       steps:
          - attach_workspace:
             at: ~/
-        - checkout
-        - run: make -f makefile
-        - run: ./terminal < input
+         - checkout
+         - run: make -f makefile
+         - run: ./terminal < input
     difference:
       machine:
          image: ubuntu-1604:201903-01
