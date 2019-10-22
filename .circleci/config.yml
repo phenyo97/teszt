@@ -8,7 +8,7 @@
         - checkout # check out the code in the project directory
         - run: make -f makefile #build the project
         - persist_to_workspace:
-            root: ~/teszt/test
+            root: ~/teszt
             paths:
               - terminal
     output:
@@ -17,7 +17,6 @@
       steps:
          - attach_workspace:
             at: ~/
-         - run: ls -la
          - run: ./terminal < input
     difference:
       machine:
@@ -25,7 +24,6 @@
       steps:
         - attach_workspace:
             at: ~/teszt
-        - run: ls -la
         - run: ./terminal < input > output
         - run: diff output outputTest
   workflows:
