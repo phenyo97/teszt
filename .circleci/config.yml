@@ -3,7 +3,7 @@
     build:
       machine: 
         image: ubuntu-1604:201903-01 # the primary container, where your job's commands are run
-      working_directory: ~/teszt
+      working_directory: ~/project
       steps:
         - checkout # check out the code in the project directory
         - run: make -f makefile #build the project
@@ -17,7 +17,7 @@
          image: ubuntu-1604:201903-01
       steps:
          - attach_workspace:
-            at: ~/
+            at: ~/teszt
          - run: ./terminal < input
     difference:
       machine:
