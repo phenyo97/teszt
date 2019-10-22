@@ -7,6 +7,7 @@
       steps:
         - checkout # check out the code in the project directory
         - run: make -f makefile #build the project
+        - run: pwd
         - persist_to_workspace:
             root: ~/teszt
             paths:
@@ -16,14 +17,14 @@
          image: ubuntu-1604:201903-01
       steps:
          - attach_workspace:
-            at: ~/teszt
+            at: ~/
          - run: ./terminal < input
     difference:
       machine:
          image: ubuntu-1604:201903-01
       steps:
         - attach_workspace:
-            at: ~/teszt
+            at: ~/
         - run: ./terminal < input > output
         - run: diff output outputTest
   workflows:
