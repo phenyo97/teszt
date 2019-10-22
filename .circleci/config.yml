@@ -6,31 +6,22 @@
       steps:
         - checkout # check out the code in the project directory
         - run: make -f makefile #build the project
-    print:
-      machine:
-        image:  ubuntu-1604:201903-01  
-      steps:
-        - checkout
-        - run: cat main.cpp
     output:
       machine:
         image: ubuntu-1604:201903-01
       steps:
         - checkout
         - run: make -f makefile
-        - run: ls -la
-        - run: ./terminal < input
+        - run: ./a.out < input
     difference:
       machine:
          image: ubuntu-1604:201903-01
       steps:
         - checkout
         - run: make -f makefile
-        - run: ls -la
-        - run: ./terminal < input > output
+        - run: ./a.out < input > output
         - run: cat output
         - run: diff output outputTest
-        - run: pwd
   workflows:
     version: 2.1
     build_print_diff:
