@@ -19,7 +19,7 @@
         - checkout
         - run: make -f makefile
         - run: ls -la
-        - run: ./a.out < input
+        - run: ./terminal < input
     difference:
       machine:
          image: ubuntu-1604:201903-01
@@ -27,7 +27,7 @@
         - checkout
         - run: make -f makefile
         - run: ls -la
-        - run: ./a.out < input > output
+        - run: ./terminal < input > output
         - run: cat output
         - run: diff output outputTest
         - run: pwd
