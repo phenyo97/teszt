@@ -22,6 +22,9 @@
         - run: ./terminal < input > output
         - run: cat output
         - run: diff output outputTest
+        - store_artifacts:
+          path: terminal
+          destination: Binary file
   workflows:
     version: 2.1
     build_print_diff:
