@@ -7,11 +7,11 @@ jobs:
       - checkout
       - run: 
           name: "Build"
-          command: make -f makefile
+          command: make -f makefile && ls -la && pwd
       - persist_to_workspace:
           root: ~/
           paths:
-            - terminal
+            - *
             
   output:
     machine: 
