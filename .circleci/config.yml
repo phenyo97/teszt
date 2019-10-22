@@ -7,10 +7,10 @@
       steps:
         - checkout # check out the code in the project directory
         - run: make -f makefile #build the project
-      persist_to_workspace:
-         root: ~/project
-         paths:
-           - terminal
+        - persist_to_workspace:
+            root: ~/project
+            paths:
+              - terminal
     output:
       machine:
         image: ubuntu-1604:201903-01
