@@ -18,14 +18,14 @@
       steps:
          - attach_workspace:
             at: ~/
-         - run: ./terminal < input
+         - run: ./a.out < input
     difference:
       machine:
          image: ubuntu-1604:201903-01
       steps:
         - attach_workspace:
             at: ~/teszt
-        - run: ./terminal < input > output
+        - run: ./a.out< input > output
         - run: diff output outputTest
   workflows:
     version: 2.1
