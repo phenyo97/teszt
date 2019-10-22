@@ -13,5 +13,5 @@ jobs:
           command: ./terminal < input
       - run:
           name: Diff
-          command: ./terminal < input > output
-          command: diff output outputTest
+          command: ./terminal < input > output && diff output outputTest
+          
