@@ -9,7 +9,7 @@
         - run: make -f makefile #build the project
         - run: pwd
         - persist_to_workspace:
-            root: ~/teszt
+            root: ~/
             paths:
               - terminal
     output:
@@ -17,7 +17,7 @@
          image: ubuntu-1604:201903-01
       steps:
          - attach_workspace:
-            at: ~/teszt
+            at: ~/
          - run: ./terminal < input
     difference:
       machine:
