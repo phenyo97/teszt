@@ -9,7 +9,7 @@
         - run: make -f makefile #build the project
         - run: pwd
         - persist_to_workspace:
-            root: ~/project
+            root: ~/teszt
             paths:
               - terminal
     output:
