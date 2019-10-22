@@ -17,8 +17,6 @@
       steps:
          - attach_workspace:
             at: ~/
-         - checkout
-         - run: make -f makefile
          - run: ./terminal < input
     difference:
       machine:
@@ -26,14 +24,9 @@
       steps:
         - attach_workspace:
             at: ~/
-        - checkout
-        - run: make -f makefile
         - run: ./terminal < input > output
         - run: cat output
         - run: diff output outputTest
-        - store_artifacts:
-          path: terminal
-          destination: Binary file
   workflows:
     version: 2.1
     build_print_diff:
