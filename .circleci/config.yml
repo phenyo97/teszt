@@ -27,9 +27,6 @@
     build_print_diff:
       jobs:
         - build
-        - print:
-           requires:
-             - build
         - output:
            requires:
              - build
