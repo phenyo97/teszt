@@ -12,6 +12,8 @@ jobs:
           root: ~/project
           paths:
             - terminal
+            - input
+            - outputTest
             
   output:
     machine: 
