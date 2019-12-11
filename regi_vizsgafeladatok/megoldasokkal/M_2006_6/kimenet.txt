@@ -1,0 +1,14 @@
+Fájl:  elso.txt mérete: 220000(byte)
+
+Fájl: masodik.txt mérete: 5620000(byte)
+
+ A kapcsolat adatai:otthoni 	sebesség: 230.0 típusa: modem jellegû.
+
+ A kapcsolat adatai:egyetemi 	sebesség: 13000.0 típusa: állandó jellegû.
+
+ f1 letöltési ideje otthon: 7s.
+ f2 letöltési ideje otthon: 190s.
+ f1 letöltési ideje egyetem: 0s.
+ f2 letöltési ideje egyetem: 3s.
+kapcs 1 össz forgalma: 5840000 byte
+kapcs 2 össz forgalma: 5840000 byte

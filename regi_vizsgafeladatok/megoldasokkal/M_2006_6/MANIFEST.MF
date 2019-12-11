@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Created-By:  Széchenyi István Egyetem 2007, 1.5.0
+Main-Class: Teszt
